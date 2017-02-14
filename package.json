@@ -1,0 +1,23 @@
+{
+  "name": "jsonschema-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poetic/jsonschema-utils.git"
+  },
+  "keywords": [
+    "jsonschema",
+    "utils"
+  ],
+  "author": "Chun Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poetic/jsonschema-utils/issues"
+  },
+  "homepage": "https://github.com/poetic/jsonschema-utils#readme"
+}
