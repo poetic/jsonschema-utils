@@ -36,5 +36,5 @@ function flattenJsonSchema(jsonSchema, parentPath) {
 }
 
 module.exports = {
-  flattenJsonSchema
+  flattenJsonSchema: flattenJsonSchema
 }
