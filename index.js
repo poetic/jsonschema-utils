@@ -1,7 +1,7 @@
 function combineProperties (properties, parentPath) {
   const flattenedJsonSchemas = Object
     .keys(properties)
-    .map((propertyKey) => {
+    .map(function (propertyKey) {
       return flattenJsonSchema(
         properties[propertyKey],
         parentPath ? [parentPath, propertyKey].join('.'): propertyKey
