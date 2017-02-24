@@ -18,7 +18,10 @@ function filterWithSchema (origin, jsonSchema) {
   } else if (type === 'array') {
     var subJsonSchema = jsonSchema.items
     if (!Array.isArray(origin)) {
-      throw Error('not-array')
+      throw {
+        name: 'not-array',
+        message: JSON.stringify(jsonSchema)
+      }
     }
     return origin.map(function(item) {
       return filterWithSchema(item, subJsonSchema)
