@@ -1,27 +1,27 @@
-function filterWithSchema (jsonSchema, origin) {
-  if (typeof origin === 'undefind') {
+function filterWithSchema (origin, jsonSchema) {
+  if (typeof origin === 'undefined') {
     return origin
   }
 
   var type = jsonSchema.type
-  if (!type && jsonSchema.properties) {
-    type = 'object'
-  }
 
   if (type === 'object') {
     var properties = jsonSchema.properties
     return Object.keys(origin).reduce(function(obj, key) {
       if (key in properties) {
         var newObj = {}
-        newObj[key] = filterWithSchema(properties[key], origin[key])
+        newObj[key] = filterWithSchema(origin[key], properties[key])
         Object.assign(obj, newObj)
       }
       return obj
     }, {})
   } else if (type === 'array') {
     var subJsonSchema = jsonSchema.items
+    if (!Array.isArray(origin)) {
+      throw Error('not-array')
+    }
     return origin.map(function(item) {
-      return filterWithSchema(subJsonSchema, item)
+      return filterWithSchema(item, subJsonSchema)
     })
   } else {
     return origin
