@@ -1,5 +1,5 @@
 function filterWithSchema (origin, jsonSchema) {
-  if (typeof origin === 'undefined') {
+  if (origin == null) {
     return origin
   }
 
